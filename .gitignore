@@ -1,0 +1,13 @@
+# Python cache (always ignore)
+__pycache__/
+*.pyc
+
+# Secrets (important)
+.env
+
+# Editor settings
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
