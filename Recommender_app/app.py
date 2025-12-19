@@ -207,11 +207,20 @@ elif mode == "New User Simulator":
     if st.button("Suggest matching vibes"):
         if selected_interests:
             recs = jaccard_similarity(selected_interests, mapping, 5)
+            recs1 = rec_engine.cold_start_recommendation(selected_interests)
             st.success("Closest matches found based on user features")
-            recs1 = rec_engine.
+            
             cols = st.columns(3, border=True)
             for i, (user, score) in enumerate(recs[:3]):
                 with cols[i]:
                     st.metric("Friend Match User:", f"{user}", f"{score:.2f}")
+
+            st.success("Match Found Based on deep Search")
+            
+            cols1 = st.columns(3, border=True)
+            for i, (user, score) in enumerate(recs1[:3]):
+                with cols1[i]:
+                    st.metric("Friend Match User:", f"{user}", f"{score:.2f}")
+        
         else:
             st.warning("Please select at least one interest.")
