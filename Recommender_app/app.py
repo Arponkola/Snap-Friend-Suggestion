@@ -208,7 +208,7 @@ elif mode == "New User Simulator":
         if selected_interests:
             recs = jaccard_similarity(selected_interests, mapping, 5)
             st.success("Closest matches found based on user features")
-            
+            recs1 = rec_engine.
             cols = st.columns(3, border=True)
             for i, (user, score) in enumerate(recs[:3]):
                 with cols[i]:
